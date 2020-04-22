@@ -5,14 +5,14 @@ describe('ES2015 syntax', () => {
        * Assume the codebase uses `let` declarations only for variables
        * that are reassigned. Use `const` otherwise.
        */
-      var a = 4
-      var b = [1, 2, 3]
+      let a = 4
+      let b = [1, 2, 3]
 
       if (b.length < 4) b.push(a)
       expect(b).toEqual([1, 2, 3, 4])
 
-      var a = 2
-      var c = [1, a, 3]
+      const d = 2
+      const c = [1, d, 3]
       expect(c).toEqual([1, 2, 3])
     })
   })
@@ -20,7 +20,7 @@ describe('ES2015 syntax', () => {
   describe('loops', () => {
     it('rewrite the for loop to use a let variable', () => {
       const nums = []
-      for (var i = 0; i < 3; i++) {
+      for (let i = 0; i < 3; i++) {
         nums.push(i)
       }
       expect(nums).toEqual([0, 1, 2])
@@ -31,25 +31,26 @@ describe('ES2015 syntax', () => {
     it('rewrite using object function shorthand', () => {
       const person = {
         name: 'Andrew',
-        getName: function() { return this.name }
+        getName() { return this.name }
       }
       expect(person.getName()).toEqual('Andrew')
     })
 
     it('rewrite using object property shorthand', () => {
       const name = 'Andrew'
-      const person = { name: name }
+      const person = { name }
       expect(person.name).toEqual('Andrew')
     })
   })
 
   describe('functions', () => {
     it('rewrite the function declaration with arrow syntax', () => {
-      expect(foo()).toEqual('foo')
 
-      function foo() {
+      const foo = () => {
         return 'foo'
       }
+
+      expect(foo()).toEqual('foo')
     })
 
     it('rewrite the function declaration, and use implicit return for anonymous function', () => {
