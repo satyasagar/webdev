@@ -65,3 +65,7 @@
  */
 
 // Your code here.
+
+const bucket = document.getElementById('bucket');
+const flag1 = document.querySelector('#container li.foo')
+bucket.appendChild(flag1)
