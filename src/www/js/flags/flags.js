@@ -65,3 +65,29 @@
  */
 
 // Your code here.
+
+const bucket = document.getElementById('bucket');
+
+const flag1 = document.querySelector('#container li.foo')
+bucket.appendChild(flag1)
+
+const flag2 = document.getElementsByTagName('article')[0]
+                      .lastElementChild
+                      .lastElementChild
+                      .lastElementChild
+bucket.appendChild(flag2)
+
+const flag3 = document.getElementsByClassName('footer')[0].firstElementChild
+                      .firstElementChild
+                      .lastElementChild
+                      .firstElementChild
+bucket.appendChild(flag3)
+
+const temp45 = document.getElementsByTagName('article')[2]
+                       .lastElementChild
+                       .previousElementSibling
+
+const flag4 = temp45.firstElementChild
+const flag5 = temp45.firstChild
+bucket.appendChild(flag4)
+bucket.appendChild(flag5)
