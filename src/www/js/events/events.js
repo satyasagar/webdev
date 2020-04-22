@@ -13,3 +13,7 @@
 
 
 // Your code here.
+
+
+var uls = document.getElementsByTagName('ul');
+console.log(uls);
