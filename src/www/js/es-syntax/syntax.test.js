@@ -181,4 +181,4 @@ describe('ES2018 syntax', () => {
       expect(personId).toEqual(42)
     })
   })
-})
+})  
