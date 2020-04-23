@@ -1,3 +1,23 @@
+const Calculator = function (initialValue) {
+  this.otherValues = []
+  this.value = initialValue
+}
+
+Calculator.prototype.add = function() {
+  this.value += this.otherValue.reduce(
+    (acc, n) => acc + n,
+    this.value
+  )
+}
+Calculator.prototype.mul = function() {
+  this.value *= this.otherValue.reduce(
+    (acc, n) => acc * n,
+    this.value
+  )
+}
+Calculator.prototype.get = function() { return this.value }
+Calculator.prototype.push  = function(value ) { return this.otherValue.push(value) }
+
 describe('Constructor Functions Exercise', () => {
   it('Should provide a Calculator function', () => {
     expect(typeof Calculator).toEqual('function')
