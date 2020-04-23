@@ -5,7 +5,7 @@ describe('Creating inheritance', () => {
   }
 
   it('make an object that has person as its prototype', () => {
-    const instructor = doSomething()
+    const instructor = Object.create(person)
     instructor.first = 'Andrew'
     instructor.last = 'Smith'
     expect(instructor.fullName()).toEqual('Andrew Smith')
@@ -14,7 +14,12 @@ describe('Creating inheritance', () => {
 
   it('make a #makePerson function that points to `person` as prototype', () => {
     // makePerson should take a `first` and `last` to give to the created object
-    const makePerson = () => {}
+    const makePerson = (first, last) => {
+      const x = Object.create(person)
+      x.first = first
+      x.last = last
+      return x
+    }
 
     const instructor = makePerson('Andrew', 'Smith')
     expect(instructor.fullName()).toEqual('Andrew Smith')
