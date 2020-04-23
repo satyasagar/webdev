@@ -27,7 +27,11 @@ describe('Creating inheritance', () => {
   })
 
   it('write a function that tells how many prototype hops is needed to find a prop', () => {
-    const baconNumber = () => {}
+    const baconNumber = (obj, prop, hops = 0) => {
+      if (!obj) return -1
+      if (obj.hasOwnProperty(prop)) return hops
+      return baconNumber(obj.__proto__, prop, hops + 1)
+    }
 
     const a = { color: 'green' }
     const b = Object.create(a)
