@@ -13,3 +13,23 @@
 
 
 // Your code here.
+
+
+const list = document.getElementsByTagName('li')
+
+list[0].firstElementChild.addEventListener('click', () => { increment(list[0]) } )
+list[1].firstElementChild.addEventListener('click', () => { increment(list[1]) } )
+
+const plist = document.getElementsByTagName('p')
+
+plist[0].firstElementChild.addEventListener('click', () => { increment(plist[0]) } )
+plist[1].firstElementChild.addEventListener('click', () => { increment(plist[1]) } )
+plist[2].firstElementChild.addEventListener('click', (e) => { console.log(e)
+    e.preventDefault
+    increment(plist[2]) } )
+
+function increment(obj){
+    val = parseInt(obj.lastElementChild).innerHTML
+    console.log(val);
+    obj.lastElementChild.innerHTML = (val+1).toString();
+}
